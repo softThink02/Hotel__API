@@ -20,7 +20,7 @@ class ROOM_MANAGER {
   // Method for editing room
   async editRoom(id, newData) {
     try {
-      return await Room.findOneAndUpdate({ _id: id }, newData);
+      return await Room.findOneAndUpdate({ _id: id },  newData, {rawResult: true});
     } catch (err) {
       if (err.message.indexOf("duplicate key error") !== -1) {
         err.message =
